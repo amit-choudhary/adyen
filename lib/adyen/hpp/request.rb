@@ -185,7 +185,7 @@ module Adyen
         # Generate a hidden input tag per parameter, join them by newlines.
         form_str = flat_payment_parameters.map { |key, value|
           "<input type=\"hidden\" name=\"#{CGI.escapeHTML(key)}\" value=\"#{CGI.escapeHTML(value)}\" />"
-        }.join("\n")
+        }.join("")
 
         form_str.respond_to?(:html_safe) ? form_str.html_safe : form_str
       end
